@@ -28,9 +28,187 @@ img {
 /* === END CSS RESET === */
 
 /* COMPOSITION */
+:root {
+    font-family: "Work Sans", sans-serif;
+
+    --clr-white-800: #FFFFFF;
+    --clr-pink-200: #AD28EB;
+    --clr-pink-400: #F8EEFF;
+    --clr-purple-100: #301534;
+    --clr-purple-400: #8B6990;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.content {
+    width: var(--content-width, 1440px);
+    height: var(--content-height, 900px);
+    background-image: var(--content-background, url("../images/background-pattern-desktop.svg"));
+    background-repeat: no-repeat;
+}
+
+.card {
+    width: var(--card-width, 600px);
+    border-radius: var(--card-border-radius, 16px);
+    padding: var(--card-padding, 40px);
+    row-gap: var(--card-row-gap, 32px);
+    flex-direction: column;
+}
 
 /* UTILITIES */
+@font-face {
+    font-family: "Work Sans";
+    src: url("../fonts/WorkSans-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Work Sans";
+    src: url("../fonts/WorkSans-SemiBold.ttf");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Work Sans";
+    src: url("../fonts/WorkSans-Bold.ttf");
+    font-style: normal;
+    font-weight: 700;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bg-primary {
+    background-color: var(--clr-pink-400);
+}
+
+.bg-secondary {
+    background-color: var(--clr-white-800);
+}
+
+.shadow-light {
+    box-shadow: 0 32px 56px 0 rgba(80, 0, 118, 0.10);
+}
 
 /* BLOCK */
+.card > * {
+    width: 100%;
+}
+
+.card-header {
+    gap: 24px;
+}
+
+.card-header__icon {
+    width: var(--card-header-icon-width, 40px);
+    height: var(--card-header-icon-height, 40px);
+}
+
+.card-header__title {
+    color: var(--clr-purple-100);
+    font-size: var(--card-font-size-h1, 56px);
+    font-weight: 700;
+}
+
+.card-accordion-wrapper {
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-accordion__question {
+    color: var(--clr-purple-100);
+    font-size: var(--card-accordion-question-font-size, 18px);
+    font-weight: 600;
+}
+
+.card-accordion__question-icon {
+    width: var(--card-accordion-icon-width, 30px);
+    height: var(--card-accordion-icon-height, 30px);
+    flex-shrink: 0;
+}
+
+.card-accordion-answer {
+    color: var(--clr-purple-400);
+    font-weight: 400;
+    font-size: var(--card-accordion-answer-font-size, 16px);
+    line-height: var(--card-accordion-answer-line-height, 24px);
+    /* Set the answer's default state to hidden. The element will
+    effectively disappear behind the question. */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.card-accordion-answer-inner-wrapper {
+    margin-top: 24px;
+}
+
+.card-accordion-spacer {
+    background-color: var(--clr-pink-400);
+    align-self: stretch;
+    height: 1px;
+}
 
 /* EXCEPTIONS */
+.card-accordion__question:hover {
+    cursor: pointer;
+    color: var(--clr-pink-200);
+}
+
+.card-accordion__question-state:checked ~ .card-accordion-answer {
+    /* Make the answer "pop up" when the question button is pressed */
+    max-height: var(--card-accordion-answer-max-height, 400px);
+}
+
+.card-accordion__question-state:checked ~ .card-accordion__question > svg path {
+    /* Change the icon's fill color and its sign from "+" to "-" */
+    fill: var(--clr-purple-100);
+    d: path("M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z");
+}
+
+/* MOBILE VERSION */
+@media only screen and (width <= 768px) {
+    :root {
+        /* content */
+        --content-width: 375px;
+        /*--content-height: 812px;*/
+        --content-height: 100vh;
+        --content-background: url("../images/background-pattern-mobile.svg");
+
+        /* card */
+        --card-width: 327px;
+        --card-border-radius: 8px;
+        --card-padding: 24px;
+        --card-header-icon-width: 24px;
+        --card-header-icon-height: 24px;
+        --card-row-gap: 24px;
+        --card-font-size-h1: 32px;
+
+        /* card-accordion */
+        --card-accordion-question-font-size: 16px;
+        --card-accordion-answer-font-size: 14px;
+        --card-accordion-answer-line-height: 21px;
+        --card-accordion-answer-max-height: 300px;
+        --card-accordion-icon-width: 24px;
+        --card-accordion-icon-height: 24px;
+    }
+}
