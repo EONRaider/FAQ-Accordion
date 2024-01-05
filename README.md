@@ -20,9 +20,11 @@ building realistic faq-accordions.
 
 ### Screenshot
 
+![FAQ-Accordion](https://github.com/EONRaider/FAQ-Accordion/assets/15611424/1ed7ebe2-0012-4187-ad8e-4c7e78c76ae7)
+
 ### Links
 
-- [My Solution on Frontend Mentor]()
+- [My Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-css3only-faq-accordion-solution-no-javascript-u7gJRVNIH-)
 - [Check the Live Site](https://eonraider-faq-accordion.netlify.app/)
 
 ## My process
