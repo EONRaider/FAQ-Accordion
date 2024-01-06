@@ -55,7 +55,6 @@ body {
     padding: var(--card-padding, 40px);
     row-gap: var(--card-row-gap, 32px);
     flex-direction: column;
-    align-items: stretch;
 }
 
 /* UTILITIES */
@@ -112,6 +111,7 @@ body {
 
 /* BLOCK */
 .card-header {
+    align-self: flex-start;
     gap: 24px;
 }
 
@@ -143,6 +143,7 @@ body {
     flex-shrink: 0;
 }
 
+
 .card-accordion-answer {
     color: var(--clr-purple-400);
     font-weight: 400;
@@ -171,12 +172,11 @@ body {
     color: var(--clr-pink-200);
 }
 
-.card-accordion__question-state:checked ~ .card-accordion-answer {
-    /* Make the answer "pop up" when the question button is pressed */
+.state__visible-answer {
     max-height: var(--card-accordion-answer-max-height, 400px);
 }
 
-.card-accordion__question-state:checked ~ .card-accordion__question > svg path {
+.state__minus-icon > svg path {
     /* Change the icon's fill color and its sign from "+" to "-" */
     fill: var(--clr-purple-100);
     d: path("M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z");
