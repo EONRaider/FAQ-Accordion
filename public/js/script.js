@@ -1,19 +1,19 @@
 function Accordion() {
-  this.questions = document.querySelectorAll('.card-accordion__question')
+  this.accordions = document.querySelectorAll('.card-accordion')
 }
 
-Accordion.prototype.setupQuestionButtons = function() {
-  this.questions.forEach(question => {
-    question.addEventListener('click', selectedQuestion => {
-      this.toggleAccordionStates(selectedQuestion.target)
+Accordion.prototype.setupAccordionEvents = function() {
+  this.accordions.forEach(accordion => {
+    accordion.addEventListener('click', selectedAccordion => {
+      this.toggleAccordionStates(selectedAccordion.currentTarget)
     })
   })
 }
 
-Accordion.prototype.toggleAccordionStates = function(question) {
-  let answer = question.nextElementSibling
-  answer.classList.toggle('state__visible-answer')
+Accordion.prototype.toggleAccordionStates = function(accordion) {
+  let [question, answer] = [...accordion.children]
   question.classList.toggle('state__minus-icon')
+  answer.classList.toggle('state__visible-answer')
 }
 
-new Accordion().setupQuestionButtons()
+new Accordion().setupAccordionEvents()
