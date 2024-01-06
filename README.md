@@ -25,7 +25,7 @@ building realistic faq-accordions.
 ### Links
 
 - [My Solution on Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-css3only-faq-accordion-solution-no-javascript-u7gJRVNIH-)
-- [Check the Live Site](https://eonraider-faq-accordion.netlify.app/)
+- [Check the Live Site](https://eonraider-js-faq-accordion.netlify.app/)
 
 ## My process
 
