@@ -1,11 +1,17 @@
 function Accordion() {
   this.accordions = document.querySelectorAll('.card-accordion')
+  this.activeAccordion = this.accordions[0]
 }
 
 Accordion.prototype.setupAccordionEvents = function() {
   this.accordions.forEach(accordion => {
-    accordion.addEventListener('click', selectedAccordion => {
-      this.toggleAccordionStates(selectedAccordion.currentTarget)
+    accordion.addEventListener('click', event => {
+      // Set the selected accordion's state to active
+      const selectedAccordion = event.currentTarget
+      this.toggleAccordionStates(selectedAccordion)
+      // Unset the state of the previously active accordion
+      this.toggleAccordionStates(this.activeAccordion)
+      this.activeAccordion = selectedAccordion
     })
   })
 }
