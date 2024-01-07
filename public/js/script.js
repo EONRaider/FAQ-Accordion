@@ -22,4 +22,6 @@ Accordion.prototype.toggleAccordionStates = function(accordion) {
   answer.classList.toggle('state__visible-answer')
 }
 
-new Accordion().setupAccordionEvents()
+const accordion = new Accordion()
+accordion.setupAccordionEvents()
+accordion.toggleAccordionStates(accordion.activeAccordion)
